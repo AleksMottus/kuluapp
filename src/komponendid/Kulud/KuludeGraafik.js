@@ -1,0 +1,29 @@
+import Graafik from "../Graafik/Graafik"
+
+const KuludeGraafik = props => {
+    
+    
+    const graafikuAndmePunktid = [
+        {label: 'Jan', value: 0},
+        {label: 'Feb', value: 0},
+        {label: 'Mar', value: 0},
+        {label: 'Apr', value: 0},
+        {label: 'May', value: 0},
+        {label: 'Jun', value: 0},
+        {label: 'Jul', value: 0},
+        {label: 'Aug', value: 0},
+        {label: 'Sep', value: 0},
+        {label: 'Oct', value: 0},
+        {label: 'Nov', value: 0},
+        {label: 'Dec', value: 0},
+    ];
+
+    for (const kulu of props.kulud) {
+        const kuluMonth = kulu.kuupaev.getMonth();
+        graafikuAndmePunktid[kuluMonth].value += kulu.summa;
+    }
+
+    return <Graafik andmePunktid={graafikuAndmePunktid}/>
+};
+
+export default KuludeGraafik;
